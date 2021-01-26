@@ -53,20 +53,42 @@ package com.leetcode.editor.cn;
  */
 public class LongestSubstringWithoutRepeatingCharacters {
     public static void main(String[] args) {
-        String str = "abdc";
-        System.out.println(str.substring(0,1));
-        // Solution solution = new LongestSubstringWithoutRepeatingCharacters().new Solution();
+        Solution solution = new LongestSubstringWithoutRepeatingCharacters().new Solution();
     }
 
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
+
         public int lengthOfLongestSubstring(String s) {
+            // 排除只有一个或没有字符的情况
+            if (s.length() <= 1) {
+                return s.length();
+            }
+            // 设置开始指针
             int start = 0;
+            // 设置结尾指针
+            int end;
+            // 初始化最大长度为0
             int maxLength = 0;
-            String str = "";
-            for (int i = 1; i < s.length(); i++) {
-
-
+            String str;
+            // 从头开始遍历该字符串，知道倒数第二个字符结束
+            for (int i = 0; i < s.length() - 1; i++) {
+                // 设置末尾为当前指针的后一位
+                end = i + 1;
+                // 截取开始索引到结束索引之间的字符串
+                str = s.substring(start, end);
+                // 获取结束索引的字符
+                char endChar = s.charAt(end);
+                // 判断开始索引到结束索引之间的字符串是否包含结束索引字符
+                int index = str.indexOf(endChar);
+                // 如果包含结束索引字符，改变开始索引的位置为相同字符的索引+1
+                if (index > -1) {
+                    start = start + index + 1;
+                }
+                int length = end - start + 1;
+                if (length > maxLength) {
+                    maxLength = length;
+                }
             }
             return maxLength;
         }
