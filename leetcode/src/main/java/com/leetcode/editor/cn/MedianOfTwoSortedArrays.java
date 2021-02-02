@@ -65,25 +65,58 @@ public class MedianOfTwoSortedArrays {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-            int countLength = nums1.length + nums2.length;
+            int length1 = nums1.length;
+            int length2 = nums2.length;
+            // 如果nums1数组长度为0，则单独计算nums2数组的中位数
+            if (length1 == 0) {
+                if (length2 % 2 == 0) {
+                    return (nums2[(length2 / 2) - 1] + nums2[(length2 / 2)]) / 2.0;
+                } else {
+                    return nums2[(length2 / 2)];
+                }
+            }
+            // 如果nums2数组长度为0，则单独计算nums1数组的中位数
+            if (length2 == 0) {
+                if (length1 % 2 == 0) {
+                    return (nums1[(length1 / 2) - 1] + nums1[(length1 / 2)]) / 2.0;
+                } else {
+                    return nums1[(length1 / 2)];
+                }
+            }
+            int countLength = length1 + length2;
             int[] arr = new int[countLength];
             int index = 0;
             int i = 0, j = 0;
+            // 如果两个数组都有数据
             while (true) {
-                if (i + j >= countLength) {
-                    if (countLength / 2 == 0) {
-                        int one = arr[(countLength / 2) - 1];
-                        int two = arr[(countLength / 2)];
-                        return (one + two) / 2;
-                    } else {
-                        return arr[(countLength / 2)];
+                // 如果num1数组的数组全部都已经复制到了arr数组中
+                if (i == length1) {
+                    // 将num2数组剩余的数据复制到arr数组中
+                    while (j != length2) {
+                        arr[index++] = nums2[j++];
                     }
+                    break;
                 }
+                // 如果num2数组的数组全部都已经复制到了arr数组中
+                if (j == length2) {
+                    // 将num1数组剩余的数据复制到arr数组中
+                    while (i != length1) {
+                        arr[index++] = nums1[i++];
+                    }
+                    break;
+                }
+                // 如果nums1对应索引的数据小于nums1对应索引的数据，将数据小的复制到arr数组中，并移动索引，达到排序的效果
                 if (nums1[i] < nums2[j]) {
                     arr[index++] = nums1[i++];
                 } else {
                     arr[index++] = nums2[j++];
                 }
+            }
+            // 计算排序之后的数组的中位数即可
+            if (countLength % 2 == 0) {
+                return (arr[(countLength / 2) - 1] + arr[(countLength / 2)]) / 2.0;
+            } else {
+                return arr[(countLength / 2)];
             }
         }
     }
