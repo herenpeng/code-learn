@@ -54,4 +54,62 @@ public class ArrayTest {
         System.out.println(array.length());
     }
 
+    @Test
+    public void test04() throws Exception {
+        Array array = new Array(5);
+        // 数组的实际元素个数为：0
+        System.out.println(array.size());
+        // 数组长度为：5
+        System.out.println(array.length());
+        System.out.println("===========");
+        array.add(1);
+        array.add(2);
+        array.add(3);
+        array.add(4);
+        array.add(3, 5);
+        for (int i = 0; i < array.size(); i++) {
+            System.out.print(array.get(i) + "\t");
+        }
+        array.add(0, 45);
+        array.add(4, 10);
+        array.add(7, 10);
+        System.out.println("===========");
+        // 数组的实际元素个数为：0
+        System.out.println(array.size());
+        // 数组长度为：5
+        System.out.println(array.length());
+
+        for (int i = 0; i < array.size(); i++) {
+            System.out.print(array.get(i) + "\t");
+        }
+    }
+
+
+    @Test
+    public void test05() throws Exception {
+        Array array = new Array(5);
+        // 数组的实际元素个数为：0
+        System.out.println(array.size());
+        // 数组长度为：5
+        System.out.println(array.length());
+        System.out.println("===========");
+        array.add(1);
+        array.add(2);
+        array.add(3);
+        array.add(4);
+        array.add(3, 5);
+
+
+        for (int i = 0; i < array.size(); i++) {
+            System.out.print(array.get(i) + "\t");
+        }
+
+        array.update(4, 15);
+        System.out.println("===========");
+        System.out.println(array.get(2));
+        for (int i = 0; i < array.size(); i++) {
+            System.out.print(array.get(i) + "\t");
+        }
+    }
+
 }
