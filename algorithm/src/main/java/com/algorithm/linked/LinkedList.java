@@ -60,7 +60,7 @@ public class LinkedList {
         }
         // 找到链表的头节点的位置
         Node temp = this.head;
-        // 从头节点向后查找，共向后循环index-1次，即可找到index位置的节点
+        // 从头节点向后查找，共向后循环index次，即可找到index位置的节点
         for (int i = 0; i < index; i++) {
             temp = temp.next;
         }
@@ -79,7 +79,7 @@ public class LinkedList {
         }
         // 找到链表的头节点的位置
         Node temp = this.head;
-        // 从头节点向后查找，共向后循环index-1次，即可找到index位置的节点
+        // 从头节点向后查找，共向后循环index次，即可找到index位置的节点
         for (int i = 0; i < index; i++) {
             temp = temp.next;
         }
