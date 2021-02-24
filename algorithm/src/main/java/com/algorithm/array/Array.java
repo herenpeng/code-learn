@@ -1,4 +1,4 @@
-package com.algorithm.day01;
+package com.algorithm.array;
 
 /**
  * @author herenpeng

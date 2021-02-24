@@ -1,9 +1,7 @@
-package com.algorithm.day01;
+package com.algorithm.array;
 
+import com.algorithm.array.Array;
 import org.junit.Test;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * @author herenpeng
