@@ -145,7 +145,23 @@ public class BinaryTreeTest {
      * @param root 二叉树根节点
      */
     public void postOrderTraveralWithStack(BinaryTree.TreeNode root) {
-
+        Stack<BinaryTree.TreeNode> stack = new Stack<>();
+        List<Integer> list = new ArrayList<>();
+        BinaryTree.TreeNode treeNode = root;
+        while (treeNode != null || !stack.isEmpty()) {
+            while (treeNode != null) {
+                list.add(treeNode.data());
+                stack.push(treeNode);
+                treeNode = treeNode.rightChile();
+            }
+            if (!stack.isEmpty()) {
+                treeNode = stack.pop();
+                treeNode = treeNode.leftChild();
+            }
+        }
+        for (int i = list.size() - 1; i >= 0; i--) {
+            System.out.print(list.get(i) + "\t");
+        }
     }
 
 
