@@ -67,11 +67,39 @@ public class ZigzagConversion {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String convert(String s, int numRows) {
-            char[] chars = s.toCharArray();
-
-            int i = 0;
-
-            return null;
+            // 如果
+            if (numRows == 1) {
+                return s;
+            } else if (numRows == 2) {
+                StringBuilder builder = new StringBuilder();
+                int len = s.length();
+                for (int i = 0; i < numRows; i++) {
+                    for (int j = i; j < len; j+=2) {
+                        builder.append(s.charAt(j));
+                    }
+                }
+                return builder.toString();
+            } else {
+                StringBuilder builder = new StringBuilder();
+                int len = s.length();
+                int n = numRows * 2 - 2;
+                for (int i = 0; i < numRows; i++) {
+                    int j = i;
+                    while(j < len) {
+                        builder.append(s.charAt(j));
+                        if (i == 0 || i == numRows-1) {
+                            j += n;
+                        } else {
+                            j += 2 * (numRows-i-1);
+                            if (j < len) {
+                                builder.append(s.charAt(j));
+                            }
+                            j += 2*i;
+                        }
+                    }
+                }
+                return builder.toString();
+            }
         }
     }
 //leetcode submit region end(Prohibit modification and deletion)
