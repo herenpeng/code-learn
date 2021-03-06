@@ -91,23 +91,6 @@ public class MinHeap {
     }
 
     /**
-     * 移除堆顶的元素
-     *
-     * @return 堆顶的元素
-     */
-    public Integer remove() {
-        if (this.size == 0) {
-            return null;
-        }
-        Integer removeData = this.array[0];
-        // 获取最后一个节点
-        this.array[0] = this.array[size - 1];
-        downAdjust(0);
-        this.array[--size] = null;
-        return removeData;
-    }
-
-    /**
      * 上浮操作
      */
     private void upAdjust() {
@@ -126,6 +109,23 @@ public class MinHeap {
             parentIndex = getParentIndex(currentIndex);
         }
         this.array[currentIndex] = temp;
+    }
+
+    /**
+     * 移除堆顶的元素
+     *
+     * @return 堆顶的元素
+     */
+    public Integer remove() {
+        if (this.size == 0) {
+            return null;
+        }
+        Integer removeData = this.array[0];
+        // 获取最后一个节点
+        this.array[0] = this.array[size - 1];
+        downAdjust(0);
+        this.array[--size] = null;
+        return removeData;
     }
 
     /**
