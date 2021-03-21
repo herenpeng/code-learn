@@ -94,12 +94,12 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>${mybatis-plus.version}</version>
         </dependency>
-        <!--easypoi相关依赖，用于操作Excel文件-->
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-spring-boot-starter</artifactId>
-            <version>${easypoi.version}</version>
-        </dependency>
+<!--        &lt;!&ndash;easypoi相关依赖，用于操作Excel文件&ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>cn.afterturn</groupId>-->
+<!--            <artifactId>easypoi-spring-boot-starter</artifactId>-->
+<!--            <version>${easypoi.version}</version>-->
+<!--        </dependency>-->
         <!--apache-lang3的通用工具类-->
         <dependency>
             <groupId>org.apache.commons</groupId>

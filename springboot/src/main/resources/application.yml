@@ -1,0 +1,45 @@
+server:
+  # 项目启动端口
+  port: 8080
+  # 项目请求前缀
+  servlet:
+    context-path: /api
+  # tomcat字符编码
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  application:
+    # Spring应用名称
+    name: zero-admin
+  # Jackson相关配置
+  jackson:
+    # 常用，全局设置实体类或被@JsonInclude注解的属性的序列化方式
+    default-property-inclusion: ALWAYS
+    # 当地时区
+    locale: zh
+    # 设置全局时区
+    time-zone: GMT+8
+    # 全局设置@JsonFormat的格式pattern
+    date-format: yyyy-MM-dd HH:mm:ss
+  # 数据库连接信息
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/zero-admin?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: admin
+# MyBatisPlus的相关配置
+mybatis-plus:
+  # Mapper文件路径，如果Mapper.xml配置文件路径和Mapper接口路径一直，可以不配置
+  mapper-locations: classpath:/com/herenpeng/**/*Mapper.xml
+  configuration:
+    # 下划线转驼峰命名
+    map-underscore-to-camel-case: true
+    # 打印sql语句，将mybatis-plus自带的SQL打印注释，使用logback记录日志
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  # 配置逻辑删除字段
+  global-config:
+    db-config:
+      # 删除状态为1(true)
+      logic-delete-value: true
+      # 没有删除状态为0(false)
+      logic-not-delete-value: false
