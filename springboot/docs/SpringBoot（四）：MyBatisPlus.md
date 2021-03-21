@@ -155,6 +155,26 @@ public class User implements Serializable {
 }
 ```
 
+数据库建表语句
+
+```sql
+CREATE TABLE `auth_user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '账号在线人数',
+  `username` varchar(50) CHARACTER SET utf8 NOT NULL COMMENT '用户名称',
+  `password` varchar(255) CHARACTER SET utf8 NOT NULL COMMENT '用户密码',
+  `enabled` tinyint(1) NOT NULL DEFAULT '1' COMMENT '账号是否启用，1为启用，0为禁用，默认为1',
+  `locked` tinyint(1) NOT NULL DEFAULT '0' COMMENT '账号是否锁定，1为锁定，0为未锁定，默认为0',
+  `account_expire` tinyint(1) NOT NULL DEFAULT '0' COMMENT '账号是否过期，1为过期，0为未过期，默认为0',
+  `password_expire` tinyint(1) NOT NULL DEFAULT '0' COMMENT '密码是否过期，1为过期，0为未过期，默认为0',
+  `create_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '数据库数据插入时间',
+  `create_user_id` int(11) NOT NULL DEFAULT '0' COMMENT '数据库数据插入用户主键',
+  `update_time` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '数据库数据更新时间',
+  `update_user_id` int(11) NOT NULL DEFAULT '0' COMMENT '数据库数据更新用户主键',
+  `deleted` tinyint(1) NOT NULL DEFAULT '0' COMMENT '逻辑删除标识，0为正常，1为逻辑删除，默认为0',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 ROW_FORMAT=COMPACT COMMENT='系统用户表'
+```
+
 ## CRUD 通用接口
 
 MyBatisPlus 提供了一个 BaseMapper 接口，实体类 Mapper 层接口只要继承该 BaseMapper 接口，MyBatisPlus 即可为 Mapper 层接口生成简单的 CRUD 操作
