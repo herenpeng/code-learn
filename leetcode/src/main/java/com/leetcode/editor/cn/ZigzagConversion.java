@@ -67,34 +67,47 @@ public class ZigzagConversion {
     //leetcode submit region begin(Prohibit modification and deletion)
     class Solution {
         public String convert(String s, int numRows) {
-            // 如果
+            // 如果行数为1，直接返回原字符串
             if (numRows == 1) {
                 return s;
             } else if (numRows == 2) {
+                // 如果行数为2，则按照索引奇偶数的顺序进行排列，因为索引从0开始，所以第一行为偶数索引，第二行为奇数索引
                 StringBuilder builder = new StringBuilder();
                 int len = s.length();
+                // 循环2次，第一次i=0（第一行），第二次i=2（第二行）
                 for (int i = 0; i < numRows; i++) {
-                    for (int j = i; j < len; j+=2) {
+                    // 索引从0开始或者从1开始，每次跳跃一位字符
+                    for (int j = i; j < len; j += 2) {
                         builder.append(s.charAt(j));
                     }
                 }
                 return builder.toString();
             } else {
+                // 其他情况，将一个N字形的字符串拆分为V字形处理
                 StringBuilder builder = new StringBuilder();
                 int len = s.length();
+                // 计算出首行和最后一行的字符间隔
                 int n = numRows * 2 - 2;
+                // 循环行数次数
                 for (int i = 0; i < numRows; i++) {
                     int j = i;
-                    while(j < len) {
+                    // 只要当前索引小于字符串长度
+                    while (j < len) {
+                        // 开始拼接每一行的字符
                         builder.append(s.charAt(j));
-                        if (i == 0 || i == numRows-1) {
+                        // 如果是第一行或者是最后一行，直接跳跃n个字符
+                        if (i == 0 || i == numRows - 1) {
                             j += n;
                         } else {
-                            j += 2 * (numRows-i-1);
+                            // 其他行数
+                            // 每行的第一个字符和第二个字符的跳跃长度为2 * (行数 - 当前行数 - 1)
+                            j += 2 * (numRows - i - 1);
                             if (j < len) {
+                                // 如果对应的字符串索引还在字符串长度范围之内，则继续拼接
                                 builder.append(s.charAt(j));
                             }
-                            j += 2*i;
+                            // 每行的第二个字符和第三个字符的跳跃长度为2 * 当前行数
+                            j += 2 * i;
                         }
                     }
                 }

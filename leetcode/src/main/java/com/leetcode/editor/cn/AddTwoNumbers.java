@@ -85,6 +85,8 @@ public class AddTwoNumbers {
                 // 移动头节点
                 p = p.next;
             }
+            // 返回除去头部节点之外的链表结构
+            // 这样返回还直接避免了相加的两个参数值为null的情况
             return dummyHead.next;
         }
 
