@@ -1,10 +1,11 @@
-package com.algorithm.heap;
+package com.structure.heap;
 
 /**
  * @author herenpeng
- * @since 2021-03-06 18:24
+ * @since 2021-03-07 10:36
  */
-public class MinHeap {
+public class MaxHeap {
+
     /**
      * 用于存储二叉堆的数组
      */
@@ -38,20 +39,20 @@ public class MinHeap {
     }
 
     /**
-     * 最小堆的构造函数
+     * 最大堆的构造函数
      *
      * @param arr 数组
      */
-    public MinHeap(Integer[] arr) {
-        buildMinHeap(arr);
+    public MaxHeap(Integer[] arr) {
+        buildMaxHeap(arr);
     }
 
     /**
-     * 构建最小堆
+     * 构建最大堆
      *
      * @param arr 数组
      */
-    private void buildMinHeap(Integer[] arr) {
+    private void buildMaxHeap(Integer[] arr) {
         this.size = arr.length;
         this.maxSize = arr.length;
         this.array = arr;
@@ -100,7 +101,7 @@ public class MinHeap {
         // 将当前孩子节点使用临时变量保存
         int temp = this.array[currentIndex];
         // 如果当前孩子节点的下标大于0，并且当前孩子节点的值小于父节点的值
-        while (currentIndex > 0 && temp < this.array[parentIndex]) {
+        while (currentIndex > 0 && temp > this.array[parentIndex]) {
             // 将父节点的值和当前孩子节点的值进行交换
             this.array[currentIndex] = this.array[parentIndex];
             // 将当前孩子节点的值修改为之前的父节点的值
@@ -143,11 +144,11 @@ public class MinHeap {
             // 右孩子节点为左孩子节点的下一位
             int rightChildIndex = childIndex + 1;
             // 如果有右孩子节点，并右孩子节点比左孩子节点的值小，则定位到右孩子节点
-            if (rightChildIndex < this.size && this.array[rightChildIndex] < this.array[childIndex]) {
+            if (rightChildIndex < this.size && this.array[rightChildIndex] > this.array[childIndex]) {
                 childIndex++;
             }
             // 如果需要下沉的节点小于孩子节点中最小的那个节点的值，直接打断程序，不继续下沉
-            if (temp <= this.array[childIndex]) {
+            if (temp >= this.array[childIndex]) {
                 break;
             }
             // 调换父子节点的值
@@ -190,5 +191,6 @@ public class MinHeap {
     private int getRightChildIndex(int parentIndex) {
         return 2 * parentIndex + 2;
     }
+
 
 }

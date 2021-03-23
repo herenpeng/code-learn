@@ -1,4 +1,4 @@
-package com.algorithm.tree;
+package com.structure.tree;
 
 /**
  * @author herenpeng

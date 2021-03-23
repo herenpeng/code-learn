@@ -1,4 +1,4 @@
-package com.algorithm.linked;
+package com.structure.linked;
 
 import org.junit.Test;
 

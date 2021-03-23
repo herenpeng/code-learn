@@ -1,4 +1,4 @@
-package com.algorithm.array;
+package com.structure.array;
 
 /**
  * @author herenpeng

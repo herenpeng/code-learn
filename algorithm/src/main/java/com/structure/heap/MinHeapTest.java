@@ -1,8 +1,6 @@
-package com.algorithm.heap;
+package com.structure.heap;
 
 import org.junit.Test;
-
-import java.util.Arrays;
 
 /**
  * @author herenpeng

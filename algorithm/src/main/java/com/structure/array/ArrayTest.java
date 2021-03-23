@@ -1,6 +1,5 @@
-package com.algorithm.array;
+package com.structure.array;
 
-import com.algorithm.array.Array;
 import org.junit.Test;
 
 /**
