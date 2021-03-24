@@ -1,6 +1,8 @@
 package com.algorithm.util;
 
 /**
+ * 排序工具类
+ *
  * @author herenpeng
  * @since 2021-03-22 23:19
  */
@@ -49,10 +51,7 @@ public class SortUtils {
      * @return 是否有序
      */
     public static boolean isOrderly(int[] arr) {
-        if (isOrderAsc(arr) || isOrderDesc(arr)) {
-            return true;
-        }
-        return false;
+        return isOrderAsc(arr) || isOrderDesc(arr);
     }
 
     /**
@@ -93,9 +92,7 @@ public class SortUtils {
      */
     public static int[] copyIntArray(int[] arr) {
         int[] copyArr = new int[arr.length];
-        for (int i = 0; i < arr.length; i++) {
-            copyArr[i] = arr[i];
-        }
+        System.arraycopy(arr, 0, copyArr, 0, arr.length);
         return copyArr;
     }
 

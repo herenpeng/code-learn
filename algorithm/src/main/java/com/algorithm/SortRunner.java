@@ -18,9 +18,10 @@ public class SortRunner {
             System.out.print("数组排序后：");
             SortUtils.printArray(arr);
             System.out.println("数组排序所需时间为：" + (endTime - startTime) + "毫秒");
-            return;
+        } else {
+            System.out.println("数组排序失败");
         }
-        System.out.println("数组排序失败");
+        System.out.println();
     }
 
 }
