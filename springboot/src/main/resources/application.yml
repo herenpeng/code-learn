@@ -27,6 +27,8 @@ spring:
     url: jdbc:mysql://127.0.0.1:3306/zero-admin?characterEncoding=utf8&useSSL=false&serverTimezone=Asia/Shanghai
     username: root
     password: admin
+  main:
+    allow-bean-definition-overriding: true
 # MyBatisPlus的相关配置
 mybatis-plus:
   # Mapper文件路径，如果Mapper.xml配置文件路径和Mapper接口路径一直，可以不配置

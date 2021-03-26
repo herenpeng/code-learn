@@ -12,6 +12,7 @@ import com.algorithm.util.SortUtils;
 public class BubbleSort {
 
     public static void main(String[] args) {
+        int[] ints = SortUtils.generateRandomArray(10000, 100, 100000);
         // 普通冒泡排序
         System.out.println("普通冒泡排序");
         SortRunner.run(SortUtils.generateRandomArray(10000, 100, 100000),
@@ -45,7 +46,7 @@ public class BubbleSort {
 
         // 无序边界值优化冒泡排序
         System.out.println("无序边界值优化冒泡排序");
-        SortRunner.run(SortUtils.generateAlmostOrderlyArray(10000, 100),
+        SortRunner.run(SortUtils.generateRandomArray(10000, 100, 100000),
                 (arr) -> {
                     int lastExchangeIndex = 0;
                     int sortBorder = arr.length - 1;
@@ -101,9 +102,13 @@ public class BubbleSort {
         System.out.println("左右无序边界值优化鸡尾酒排序");
         SortRunner.run(SortUtils.generateRandomArray(10000, 100, 100000),
                 (arr) -> {
+                    // 左边最后进行元素交换的索引位置
                     int leftExchangeIndex = 0;
+                    // 左边界
                     int leftSortBorder = leftExchangeIndex;
+                    // 右边最后进行元素交换的索引位置
                     int rightExchangeIndex = arr.length - 1;
+                    // 右边界
                     int rightSortBorder = rightExchangeIndex;
                     for (int i = 0; i < arr.length / 2; i++) {
                         // 奇数轮，从左往右排序
