@@ -2,13 +2,14 @@ package com.algorithm.quick;
 
 import com.algorithm.SortRunner;
 import com.algorithm.util.SortUtils;
-import com.sun.org.apache.bcel.internal.generic.INEG;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Stack;
 
 /**
+ * 快速排序
+ *
  * @author herenpeng
  * @since 2021-04-14 21:53
  */
