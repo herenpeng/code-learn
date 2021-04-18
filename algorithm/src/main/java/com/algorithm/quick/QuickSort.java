@@ -18,8 +18,8 @@ public class QuickSort {
     public static void main(String[] args) {
         SortRunner.run(SortUtils.generateRandomArray(10000, 100, 100000),
                 (arr) -> {
-                    // quickSort(arr, 0, arr.length - 1);
-                    quickSort1(arr, 0, arr.length - 1);
+                    quickSort(arr, 0, arr.length - 1);
+                    // quickSort1(arr, 0, arr.length - 1);
                 });
     }
 
