@@ -64,6 +64,11 @@ public class MyBatisPlusTest {
     @Test
     public void test04() {
         userMapper.deleteById(23);
+        // val a = 10;
+        // a = 12;
+        var b = 10;
+        b = 13;
+        System.out.println(b);
     }
 
 }
