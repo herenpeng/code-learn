@@ -5,3 +5,7 @@ target/
 
 *.iml
 .idea
+
+com.leetcode.editor.cn.doc/
+com.leetcode.editor.cn.*.json
+com.leetcode.editor.cn.*.md
