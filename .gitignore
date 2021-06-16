@@ -6,6 +6,6 @@ target/
 *.iml
 .idea
 
-com.leetcode.editor.cn.doc/
-com.leetcode.editor.cn.*.json
-com.leetcode.editor.cn.*.md
+leetcode/src/main/java/com/leetcode/editor/cn/doc/
+leetcode/src/main/java/com/leetcode/editor/cn/*.json
+leetcode/src/main/java/com/leetcode/editor/cn/*.md
