@@ -69,14 +69,12 @@ public class RemoveDuplicatesFromSortedArray {
     class Solution {
         public int removeDuplicates(int[] nums) {
             int i = 0, j = 1;
-            int size = nums.length - 1;
-            while (j <= size) {
+            while (j < nums.length) {
                 if (nums[i] != nums[j]) {
                     swap(nums, ++i, j);
                 }
                 j++;
             }
-            // size 是索引，要返回的是长度，所以直接 +1
             return i + 1;
         }
 
@@ -85,8 +83,6 @@ public class RemoveDuplicatesFromSortedArray {
             nums[i] = nums[j];
             nums[j] = temp;
         }
-
-
     }
 //leetcode submit region end(Prohibit modification and deletion)
 
